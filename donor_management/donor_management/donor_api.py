@@ -83,7 +83,7 @@ def validate_mandatory_fields(mandatory_fields, data):
                 value = data[field]
                 if not value or value.strip() == "":
                     return {
-                        "error": f"{key} is mandatory"
+                        "error": f"{field} is mandatory"
                     }
     return True
     
@@ -137,7 +137,7 @@ def donation_record_validation(data):
     mandatory_fields = ["donor_name", "email", "pan_card", "phone", "donation_amount", "date_of_donation"]
 
     response=validate_mandatory_fields(mandatory_fields, data)
-    if response:
+    if isinstance(response, bool):
         if not validate_email(data.email):
             return {
                 "error": "invalid email format"
@@ -151,8 +151,9 @@ def donation_record_validation(data):
                 "error": "invalid date format"
             }
         return update_donor_donation_details(data) 
-    else:
+    elif isinstance(response, dict):
         return response
+        
     #response = validate_non_blank_field(data)
     #if isinstance(response, bool):
     #    return update_donor_donation_details(data) 
