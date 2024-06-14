@@ -73,7 +73,18 @@ def validate_non_blank_field(data):
             }
     return True
 
-
+def validate_mandatory_fields(mandatory_fields, data):
+    for field in mandatory_fields:
+            if field not in data:
+                return {f"Error: Missing mandatory field '{field}'"}
+                
+    for key, value in data.items():
+        if not value or value.strip() == "":
+            return {
+                "error": f"{key} is mandatory"
+            }
+    return True
+    
 def validate_email(email):
     pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
     return re.match(pattern, email) is not None
@@ -123,25 +134,25 @@ def send_donation_data():
 def donation_record_validation(data):
     mandatory_fields = ["donor_name", "email", "pan_card", "phone", "donation_amount", "date_of_donation"]
 
-    for field in mandatory_fields:
-        if field not in data:
-            return f"Error: Missing mandatory field '{field}'"
-
-    if not validate_email(data.email):
-        return {
-            "error": "invalid email format"
-        }
-    if not validate_phone(data.phone):
-        return {
-            "error": "invalid phone number"
-        }
-    if not validate_date_format(data.date_of_donation):
-        return {
-            "error": "invalid date format"
-        }
-
-    response = validate_non_blank_field(data)
-    if isinstance(response, bool):
+    response=validate_mandatory_fields(mandatory_fields, data)
+    if response:
+        if not validate_email(data.email):
+            return {
+                "error": "invalid email format"
+            }
+        if not validate_phone(data.phone):
+            return {
+                "error": "invalid phone number"
+            }
+        if not validate_date_format(data.date_of_donation):
+            return {
+                "error": "invalid date format"
+            }
         return update_donor_donation_details(data) 
-    elif isinstance(response, dict):
+    else:
         return response
+    #response = validate_non_blank_field(data)
+    #if isinstance(response, bool):
+    #    return update_donor_donation_details(data) 
+    #elif isinstance(response, dict):
+    #    return response
