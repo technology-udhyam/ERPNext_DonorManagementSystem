@@ -85,6 +85,12 @@ def validate_mandatory_fields(mandatory_fields, data):
                     return {
                         "error": f"{field} is mandatory"
                     }
+                else:
+                    if field == "donor_type":
+                        if value != "Citizen Volunteer":
+                            return {
+                                "error":f"{field} accepts only 'Citizen Volunteer'"
+                            }
     return True
     
 def validate_email(email):
@@ -134,8 +140,12 @@ def send_donation_data():
 
 
 def donation_record_validation(data):
-    mandatory_fields = ["donor_name", "email", "pan_card", "phone", "donation_amount", "date_of_donation"]
-
+    mandatory_fields = ["donor_name", "email", "pan_card", "phone", "donor_type", "donation_amount", "date_of_donation"]
+    
+    #NOTE: donor_type has to be a predefined value. We shouldn't allow new donor types to be created on the fly
+    # For example, for Vyapaar PWA, we have created a donor type "Citizen Volunteer". 
+    # When the API is called, "Citizen Volunteer" has to be posted as donor_type
+    
     response=validate_mandatory_fields(mandatory_fields, data)
     if isinstance(response, bool):
         if not validate_email(data.email):
