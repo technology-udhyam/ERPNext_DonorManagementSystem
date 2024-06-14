@@ -29,7 +29,7 @@ def create_donor_donation(donor, data):
     donor.phone = data.phone
     donor.address = data.address
     donor.email = data.email
-    donor.donor_type = 'Website Donor'
+    donor.donor_type = data.donor_type
     donor.save(ignore_permissions=True)
     create_donation(data, donor)
 
