@@ -76,13 +76,15 @@ def validate_non_blank_field(data):
 def validate_mandatory_fields(mandatory_fields, data):
     for field in mandatory_fields:
             if field not in data:
-                return {f"Error: Missing mandatory field '{field}'"}
-                
-    for key, value in data.items():
-        if not value or value.strip() == "":
-            return {
-                "error": f"{key} is mandatory"
-            }
+                return {
+                    "error": f"Missing mandatory field '{field}'"
+                }
+            else:
+                value = data[field]
+                if not value or value.strip() == "":
+                    return {
+                        "error": f"{key} is mandatory"
+                    }
     return True
     
 def validate_email(email):
