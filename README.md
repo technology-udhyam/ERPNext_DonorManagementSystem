@@ -67,6 +67,18 @@ Installing Frappe Framework: Frappe Version 16
 # Installation on Frappe Cloud:
 - checkout the following video for the reference to install apps on frappe cloud https://youtu.be/GeEiskWLf2k?si=b533oUm4oWk92kTa
 
+# How to add users to use Donor Management system
+
+- A new "Fund Raiser" role needs to be created with access to all the Doctypes that are available under the Donor Management module
+- A new "Fund Raiser" **Role Profile** can be created with "Fund Raiser", "Employee" and "Sales User" roles selected. These additional roles required to get access to the various features available in Donor Management
+- A new Module Profile can be created with "Donor Management" module selected
+- After the above roles and modules are setup, a new User can created.
+- The new user has to be setup with "Fund Raiser" Role Profile and "Donor Management Module Profile" Module Profile
+- By giving access to the above 2 profiles, the user will automatically get access to all the roles and the modules under those profiles
+- Make sure the User is also an Employee (by assigning the User Id in the Employee record of the User)
+- When the new user is setup, a Welcome email will be sent to the user which will allow them to reset their password and login.
+- They should see only Donor Management module in their workspace and nothing else
+
 # API Details 
 - API 1: To generate Token for authentication
     - Method: GET
