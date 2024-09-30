@@ -7,10 +7,12 @@ class Donation(Document):
         add_donation_to_overall_donation(self)
         left_over_donation_amount(self)
 
+    def on_cancel(self):
+        revert_donation_from_overall_donation(self)
+
 def left_over_donation_amount(doc):
     donation_amount = doc.tranche_amount
     frappe.db.set_value("Donation", doc.name, "left_over_donation", donation_amount)
-
 
 @frappe.whitelist()
 def exchange_rate(preferred_currency, amount_in_preferred_currency, date_of_donation):
@@ -23,7 +25,7 @@ def exchange_rate(preferred_currency, amount_in_preferred_currency, date_of_dona
     except Exception as e:
         frappe.logger().error(f"Error in exchange_rate: {str(e)}", exc_info=True)
         return {"status": "error", "message": f"Error: {str(e)}"}
-    
+
 @frappe.whitelist()
 def add_donation_to_overall_donation(doc):
     try:
@@ -46,7 +48,7 @@ def add_new_overall_donation(doc):
         new_overall_donation_document.donor_id = doc.get("donor_id")
         new_overall_donation_document.donor_email = doc.get("email")
         new_overall_donation_document.donor_name = doc.get("donor_name")
-        new_overall_donation_document.total_donation= doc.get("tranche_amount")
+        new_overall_donation_document.total_donation = doc.get("tranche_amount")
         new_overall_donation_document.available_donation_amount = doc.get("tranche_amount")
         new_overall_donation_document.latest_donation_date = doc.get("date_of_donation")
         new_overall_donation_document.insert(ignore_permissions=True)
@@ -65,5 +67,17 @@ def update_overall_donation(doc):
     except Exception as e:
         frappe.log_error(f"Error in update_overall_donation: {e}", "Donation Processing")
 
+# New method to handle cancellation of donations
+def revert_donation_from_overall_donation(doc):
+    try:
+        overall_donation_document = frappe.get_doc("Overall Donation", {"donor_id": doc.get("donor_id")})
+        
+        # Revert the donation amount in Overall Donation
+        overall_donation_document.total_donation -= doc.get("tranche_amount")
+        overall_donation_document.available_donation_amount -= doc.get("tranche_amount")
 
-
+        # Save the changes
+        overall_donation_document.save()
+        frappe.msgprint("Overall Donation document reverted due to donation cancellation.")
+    except Exception as e:
+        frappe.log_error(f"Error in revert_donation_from_overall_donation: {e}", "Donation Processing")
