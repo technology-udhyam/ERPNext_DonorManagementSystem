@@ -39,7 +39,8 @@
    "fieldname": "donor_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Donor Name"
+   "label": "Donor Name",
+   "search_index": 1
   },
   {
    "fieldname": "gender",
@@ -175,7 +176,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2024-05-28 13:05:37.680755",
+ "modified": "2024-10-03 13:21:21.448654",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",

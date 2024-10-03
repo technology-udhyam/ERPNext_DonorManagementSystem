@@ -27,7 +27,7 @@
   "exchange_rate",
   "tranche_amount",
   "column_break_swjj",
-  "foriegn_donation",
+  "foreign_donation",
   "left_over_donation",
   "mode_of_payment",
   "pan_card",
@@ -35,9 +35,10 @@
   "amended_from",
   "paid",
   "receipt_details_section",
-  "receipt_sent_date",
+  "receipt_generated",
   "column_break_saby",
-  "receipt_generated"
+  "receipt_sent_date",
+  "receipt_document"
  ],
  "fields": [
   {
@@ -94,14 +95,14 @@
    "label": "Tranche Name"
   },
   {
-   "depends_on": "eval:doc.foriegn_donation == true;",
+   "depends_on": "eval:doc.foreign_donation == true;",
    "fieldname": "preferred_currency",
    "fieldtype": "Link",
    "label": "Preferred Currency",
    "options": "Currency"
   },
   {
-   "depends_on": "eval:doc.foriegn_donation == true;",
+   "depends_on": "eval:doc.foreign_donation == true;",
    "fieldname": "amount_in_preferred_currency",
    "fieldtype": "Int",
    "label": "Amount in Preferred Currency"
@@ -122,12 +123,6 @@
   {
    "fieldname": "column_break_swjj",
    "fieldtype": "Column Break"
-  },
-  {
-   "default": "0",
-   "fieldname": "foriegn_donation",
-   "fieldtype": "Check",
-   "label": "Foriegn Donation"
   },
   {
    "fetch_from": "amended_from.tranche_amount",
@@ -181,11 +176,13 @@
    "label": "Donor Name"
   },
   {
+   "fetch_from": "project.project_start_date",
    "fieldname": "engagement_start_date",
    "fieldtype": "Date",
    "label": "Engagement Start date"
   },
   {
+   "fetch_from": "project.project_end_date",
    "fieldname": "engagement_end_date",
    "fieldtype": "Date",
    "label": "Engagement End date"
@@ -196,22 +193,25 @@
    "label": "Receipt Details"
   },
   {
-   "fieldname": "receipt_sent_date",
-   "fieldtype": "Date",
-   "label": "Receipt Sent Date"
-  },
-  {
-   "fieldname": "column_break_saby",
-   "fieldtype": "Column Break"
-  },
-  {
+   "default": "No",
    "fieldname": "receipt_generated",
    "fieldtype": "Select",
    "label": "Receipt Generated",
    "options": "Yes\nNo"
   },
   {
-   "depends_on": "eval:doc.foriegn_donation == true;",
+   "fieldname": "column_break_saby",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.receipt_generated == \"Yes\"",
+   "fieldname": "receipt_sent_date",
+   "fieldtype": "Date",
+   "label": "Receipt Sent Date",
+   "mandatory_depends_on": "eval:doc.receipt_generated == \"Yes\""
+  },
+  {
+   "depends_on": "eval:doc.foreign_donation == true;",
    "fieldname": "exchange_rate",
    "fieldtype": "Currency",
    "label": "Exchange rate"
@@ -233,13 +233,26 @@
    "fieldtype": "Link",
    "label": "Project ",
    "options": "Project Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "foreign_donation",
+   "fieldtype": "Check",
+   "label": "Foreign Donation"
+  },
+  {
+   "depends_on": "eval:doc.receipt_generated == \"Yes\"",
+   "fieldname": "receipt_document",
+   "fieldtype": "Attach",
+   "label": "Recipt",
+   "mandatory_depends_on": "eval:doc.receipt_generated == \"Yes\""
   }
  ],
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-05-27 14:13:23.821269",
+ "modified": "2024-10-03 15:40:01.484461",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donation",
@@ -267,5 +280,6 @@
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
- "title_field": "donor_name"
+ "title_field": "donor_name",
+ "track_changes": 1
 }
