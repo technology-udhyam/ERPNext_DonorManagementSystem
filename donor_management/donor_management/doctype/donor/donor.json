@@ -52,6 +52,7 @@
    "fieldname": "organisation_name",
    "fieldtype": "Data",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Organisation Name"
   },
   {
@@ -176,7 +177,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2024-10-03 13:21:21.448654",
+ "modified": "2024-10-08 22:45:55.407038",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",
