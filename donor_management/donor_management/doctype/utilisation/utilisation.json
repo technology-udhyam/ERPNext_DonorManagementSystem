@@ -121,7 +121,8 @@
   {
    "fieldname": "utilisation_purpose",
    "fieldtype": "Text",
-   "label": "Purpose of Utilisation"
+   "label": "Purpose of Utilisation",
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -163,7 +164,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-09-28 22:21:16.135161",
+ "modified": "2024-10-09 23:52:57.674749",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Utilisation",

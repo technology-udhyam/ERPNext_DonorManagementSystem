@@ -4,6 +4,7 @@ frappe.ui.form.on("Donation", {
         var amount_in_preferred_currency = frm.doc.amount_in_preferred_currency;
         var date_of_donation = frm.doc.date_of_donation;
 
+
         // Check if date of donation is provided
         if (!date_of_donation) {
             // Throw an error and clear the fields
@@ -58,13 +59,14 @@ frappe.ui.form.on("Donation", {
         });
 	}
     },
-    before_submit: function(frm, cdt, cdn) {
-	var receipt_generated = frm.doc.receipt_generated;
-	if (receipt_generated=='No') {
-		frappe.validated=false;
-		frappe.msgprint(__("Please submit ONLY after all formalities are completed including receipt generation"));
-		return false;
-	}
-	return true;
-    },
+    //before_submit: function(frm, cdt, cdn) {
+//	var receipt_generated = frm.doc.receipt_generated;
+//	if (receipt_generated=='No') {
+//		frappe.validated=false;
+//		frappe.msgprint(__("Please submit ONLY after all formalities are completed including receipt generation"));
+//		return false;
+//	}
+//	return true;
+//    },
+
 });

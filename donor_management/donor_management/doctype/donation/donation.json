@@ -81,7 +81,6 @@
    "fetch_from": "donor_id.email",
    "fieldname": "email",
    "fieldtype": "Data",
-   "in_list_view": 1,
    "label": "Email",
    "options": "Email",
    "reqd": 1
@@ -254,7 +253,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-08 22:46:39.486918",
+ "modified": "2024-10-10 16:27:36.304947",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donation",
