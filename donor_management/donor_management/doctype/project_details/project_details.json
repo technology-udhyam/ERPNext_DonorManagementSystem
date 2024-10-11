@@ -6,38 +6,37 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "donor_name",
+  "project_name",
   "state",
   "project_description",
   "column_break_ixup",
-  "project_name",
   "project_start_date",
-  "project_end_date"
+  "project_end_date",
+  "vertical",
+  "project_donor",
+  "amount_pledged"
  ],
  "fields": [
   {
    "fieldname": "project_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Project Name",
+   "reqd": 1,
    "unique": 1
   },
   {
    "fieldname": "state",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "State",
-   "options": "N/A\nAndhra Pradesh\nArunachal Pradesh\nAssam\nBihar\nChhattisgarh\nGoa\nGujarat\nHaryana\nHimachal Pradesh\nJammu and Kashmir\nJharkhand\nKarnataka\nKerala\nMadhya Pradesh\nMaharashtra\nManipur\nMeghalaya\nMizoram\nNagaland\nOdisha\nPunjab\nRajasthan\nSikkim\nTamil Nadu\nTelangana\nTripura\nUttar Pradesh\nUttarakhand\nWest Bengal"
+   "options": "\nAndhra Pradesh\nArunachal Pradesh\nAssam\nBihar\nChhattisgarh\nGoa\nGujarat\nHaryana\nHimachal Pradesh\nJammu and Kashmir\nJharkhand\nKarnataka\nKerala\nMadhya Pradesh\nMaharashtra\nManipur\nMeghalaya\nMizoram\nNagaland\nOdisha\nPunjab\nRajasthan\nSikkim\nTamil Nadu\nTelangana\nTripura\nUttar Pradesh\nUttarakhand\nWest Bengal",
+   "reqd": 1
   },
   {
    "fieldname": "project_description",
    "fieldtype": "Small Text",
    "label": "Project Description"
-  },
-  {
-   "fieldname": "donor_name",
-   "fieldtype": "Link",
-   "label": "Donor Name",
-   "options": "Donor",
-   "search_index": 1
   },
   {
    "fieldname": "project_start_date",
@@ -52,11 +51,32 @@
   {
    "fieldname": "column_break_ixup",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vertical",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Vertical",
+   "options": "\nShiksha\nVyapaar\nCentral\nN/A",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount_pledged",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount Pledged"
+  },
+  {
+   "fieldname": "project_donor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Donor",
+   "options": "Donor"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-03 13:20:23.844894",
+ "modified": "2024-10-11 20:22:39.137583",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Project Details",

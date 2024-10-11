@@ -10,30 +10,31 @@
   "naming_series",
   "donor_id",
   "donor_name",
-  "donor_type",
-  "organisation",
-  "project",
   "column_break_arme",
-  "designation",
-  "email",
-  "engagement_start_date",
+  "organisation",
+  "donor_type",
+  "pan_card",
+  "section_break_ppjr",
+  "unrestricted_or_project",
+  "project_details_section",
+  "project",
   "engagement_end_date",
+  "engagement_start_date",
   "vertical",
   "tranche_details_section",
   "tranche_name",
-  "date_of_donation",
-  "preferred_currency",
-  "amount_in_preferred_currency",
-  "exchange_rate",
   "tranche_amount",
-  "column_break_swjj",
   "foreign_donation",
-  "left_over_donation",
+  "preferred_currency",
+  "exchange_rate",
+  "amount_in_preferred_currency",
+  "column_break_swjj",
+  "date_of_donation",
   "mode_of_payment",
-  "pan_card",
-  "donation_status",
   "amended_from",
+  "donation_status",
   "paid",
+  "left_over_donation",
   "receipt_details_section",
   "receipt_generated",
   "column_break_saby",
@@ -57,7 +58,6 @@
   {
    "fieldname": "date_of_donation",
    "fieldtype": "Date",
-   "in_list_view": 1,
    "label": "Tranch Date as per agreement",
    "reqd": 1
   },
@@ -70,20 +70,6 @@
    "fieldname": "donor_type",
    "fieldtype": "Data",
    "label": "Donor Type"
-  },
-  {
-   "fetch_from": "donor_id.designation",
-   "fieldname": "designation",
-   "fieldtype": "Data",
-   "label": "Designation"
-  },
-  {
-   "fetch_from": "donor_id.email",
-   "fieldname": "email",
-   "fieldtype": "Data",
-   "label": "Email",
-   "options": "Email",
-   "reqd": 1
   },
   {
    "fieldname": "tranche_details_section",
@@ -101,20 +87,24 @@
    "fieldname": "preferred_currency",
    "fieldtype": "Link",
    "label": "Preferred Currency",
+   "mandatory_depends_on": ":doc.foreign_donation == true;",
    "options": "Currency"
   },
   {
    "depends_on": "eval:doc.foreign_donation == true;",
    "fieldname": "amount_in_preferred_currency",
    "fieldtype": "Int",
-   "label": "Amount in Preferred Currency"
+   "label": "Amount in Preferred Currency",
+   "non_negative": 1
   },
   {
    "fieldname": "tranche_amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Tranche Amount",
-   "precision": "0"
+   "non_negative": 1,
+   "precision": "0",
+   "reqd": 1
   },
   {
    "fieldname": "donation_status",
@@ -178,12 +168,14 @@
    "label": "Donor Name"
   },
   {
+   "depends_on": "eval:doc.unrestricted_or_project == 'Project Based';",
    "fetch_from": "project.project_start_date",
    "fieldname": "engagement_start_date",
    "fieldtype": "Date",
    "label": "Engagement Start date"
   },
   {
+   "depends_on": "eval:doc.unrestricted_or_project == 'Project Based';",
    "fetch_from": "project.project_end_date",
    "fieldname": "engagement_end_date",
    "fieldtype": "Date",
@@ -225,16 +217,22 @@
    "label": "Pan Card"
   },
   {
+   "depends_on": "eval:doc.unrestricted_or_project == 'Project Based';",
+   "fetch_from": "project.vertical",
    "fieldname": "vertical",
-   "fieldtype": "Link",
+   "fieldtype": "Select",
    "label": "Vertical",
-   "options": "Department Name"
+   "options": "\nShiksha\nVyapaar\nCentral\nN/A",
+   "reqd": 1
   },
   {
+   "depends_on": "eval:doc.unrestricted_or_project == \"Project Based\"",
    "fieldname": "project",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Project ",
-   "options": "Project Details"
+   "options": "Project Details",
+   "reqd": 1
   },
   {
    "default": "0",
@@ -246,15 +244,31 @@
    "depends_on": "eval:doc.receipt_generated == \"Yes\"",
    "fieldname": "receipt_document",
    "fieldtype": "Attach",
-   "label": "Recipt",
+   "label": "Receipt",
    "mandatory_depends_on": "eval:doc.receipt_generated == \"Yes\""
+  },
+  {
+   "fieldname": "section_break_ppjr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Unrestricted",
+   "fieldname": "unrestricted_or_project",
+   "fieldtype": "Select",
+   "label": "Donation Type",
+   "options": "Unrestricted\nProject Based",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project_details_section",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-11 16:37:41.126800",
+ "modified": "2024-10-11 20:59:16.392202",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donation",
