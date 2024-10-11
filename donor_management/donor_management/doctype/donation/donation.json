@@ -97,6 +97,7 @@
   },
   {
    "depends_on": "eval:doc.foreign_donation == true;",
+   "fetch_from": "donor_id.preferred_currency",
    "fieldname": "preferred_currency",
    "fieldtype": "Link",
    "label": "Preferred Currency",
@@ -253,7 +254,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-10 16:27:36.304947",
+ "modified": "2024-10-11 16:37:41.126800",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donation",

@@ -10,22 +10,23 @@
   "donor_details_section",
   "naming_series",
   "donor_name",
+  "phone",
+  "designation",
   "gender",
   "dob",
-  "organisation_name",
   "address",
+  "preferred_currency",
   "column_break_uhko",
+  "organisation_name",
   "email",
-  "phone",
   "alternative_number",
-  "designation",
   "preferred_communication_method",
   "donor_type",
   "tax_identification_number",
   "pan_card",
   "aadhar_number",
-  "presentation_given",
   "departments",
+  "presentation_given",
   "presentation_details_section",
   "presentation_details"
  ],
@@ -58,7 +59,8 @@
   {
    "fieldname": "address",
    "fieldtype": "Text",
-   "label": "Address"
+   "label": "Address",
+   "max_height": "8em"
   },
   {
    "fieldname": "column_break_uhko",
@@ -149,13 +151,18 @@
   {
    "fieldname": "presentation_details",
    "fieldtype": "Table",
-   "label": "Presentation Details",
    "options": "Attachments"
   },
   {
    "fieldname": "dob",
    "fieldtype": "Date",
    "label": "Date of Birth"
+  },
+  {
+   "fieldname": "preferred_currency",
+   "fieldtype": "Link",
+   "label": "Preferred Currency",
+   "options": "Currency"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -177,7 +184,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2024-10-08 22:45:55.407038",
+ "modified": "2024-10-11 16:43:04.115161",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",
