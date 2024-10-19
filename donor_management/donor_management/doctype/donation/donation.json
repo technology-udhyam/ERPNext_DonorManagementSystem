@@ -10,6 +10,7 @@
   "naming_series",
   "donor_id",
   "donor_name",
+  "donor_email",
   "column_break_arme",
   "organisation",
   "donor_type",
@@ -262,13 +263,20 @@
   {
    "fieldname": "project_details_section",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "donor_id.email",
+   "fieldname": "donor_email",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Donor Email"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-11 20:59:16.392202",
+ "modified": "2024-10-19 21:25:31.878917",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donation",
