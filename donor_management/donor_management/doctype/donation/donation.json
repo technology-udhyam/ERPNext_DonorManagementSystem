@@ -223,8 +223,8 @@
    "fieldname": "vertical",
    "fieldtype": "Select",
    "label": "Vertical",
-   "options": "\nShiksha\nVyapaar\nCentral\nN/A",
-   "reqd": 1
+   "mandatory_depends_on": "eval:doc.unrestricted_or_project == \"Project Based\"",
+   "options": "\nShiksha\nVyapaar\nCentral\nN/A"
   },
   {
    "depends_on": "eval:doc.unrestricted_or_project == \"Project Based\"",
@@ -232,8 +232,8 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Project ",
-   "options": "Project Details",
-   "reqd": 1
+   "mandatory_depends_on": "eval:doc.unrestricted_or_project == \"Project Based\"",
+   "options": "Project Details"
   },
   {
    "default": "0",
@@ -276,7 +276,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-10-19 21:25:31.878917",
+ "modified": "2024-10-21 11:06:08.461583",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donation",
