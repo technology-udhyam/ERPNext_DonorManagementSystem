@@ -105,7 +105,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Lead Status",
-   "options": "Future Pipeline\nCold Lead\nWarm Lead\nHot Lead\nRejected\nConverted to donor\nNone",
+   "options": "Future Pipeline\nCold Lead\nWarm Lead\nHot Lead\nRejected\nConverted to donor\nConnected\nNone",
    "sort_options": 1
   },
   {
