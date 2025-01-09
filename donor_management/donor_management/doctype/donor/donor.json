@@ -16,17 +16,18 @@
   "dob",
   "address",
   "preferred_currency",
+  "departments",
   "column_break_uhko",
   "organisation_name",
   "email",
   "alternative_number",
-  "preferred_communication_method",
   "donor_type",
+  "preferred_communication_method",
   "tax_identification_number",
   "pan_card",
   "aadhar_number",
-  "departments",
   "presentation_given",
+  "donor_cost_center_shortname",
   "presentation_details_section",
   "presentation_details"
  ],
@@ -162,6 +163,12 @@
    "fieldtype": "Link",
    "label": "Preferred Currency",
    "options": "Currency"
+  },
+  {
+   "description": "The donor shortname will be used to match the Donor with a Cost Center in the accounting system. The cost centers names in the accounting system have a short name of the Donor embedded in the text",
+   "fieldname": "donor_cost_center_shortname",
+   "fieldtype": "Data",
+   "label": "Donor Shortname Used in Cost Center"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -183,7 +190,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2024-12-16 09:18:54.446028",
+ "modified": "2025-01-09 14:01:31.555957",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",
