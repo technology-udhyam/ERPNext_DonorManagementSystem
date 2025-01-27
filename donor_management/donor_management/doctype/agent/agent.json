@@ -17,9 +17,9 @@
   "salutation",
   "date_of_joining",
   "department",
-  "naming_series",
   "address_and_other_details_section",
-  "address"
+  "address",
+  "naming_series"
  ],
  "fields": [
   {
@@ -94,14 +94,15 @@
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
-   "label": "Agent Series",
+   "in_list_view": 1,
+   "label": "Naming Series",
    "options": "AGENT-",
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-27 19:54:34.808603",
+ "modified": "2025-01-27 21:48:48.171308",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Agent",
