@@ -18,7 +18,8 @@
   "date_of_joining",
   "department",
   "address_and_other_details_section",
-  "address"
+  "address",
+  "naming_series"
  ],
  "fields": [
   {
@@ -90,11 +91,17 @@
    "fieldname": "address",
    "fieldtype": "Long Text",
    "label": "Address"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Unique ID",
+   "options": "AGENT-"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-28 08:14:53.169094",
+ "modified": "2025-01-28 09:25:44.448815",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Agent",
