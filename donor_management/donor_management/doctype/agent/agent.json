@@ -2,7 +2,7 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "naming_series:",
+ "autoname": "field:email",
  "creation": "2024-02-19 14:00:32.427062",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -18,8 +18,7 @@
   "date_of_joining",
   "department",
   "address_and_other_details_section",
-  "address",
-  "naming_series"
+  "address"
  ],
  "fields": [
   {
@@ -91,23 +90,15 @@
    "fieldname": "address",
    "fieldtype": "Long Text",
    "label": "Address"
-  },
-  {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Naming Series",
-   "options": "AGENT-",
-   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-27 22:37:15.288940",
+ "modified": "2025-01-28 08:14:53.169094",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Agent",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
