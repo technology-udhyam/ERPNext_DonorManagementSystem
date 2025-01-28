@@ -96,12 +96,12 @@
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Unique ID",
-   "options": "AGENT-"
+   "options": "NEWID-"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-28 09:25:44.448815",
+ "modified": "2025-01-28 19:41:12.943344",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Agent",
