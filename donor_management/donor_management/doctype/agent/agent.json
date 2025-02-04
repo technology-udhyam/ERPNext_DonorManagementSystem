@@ -16,7 +16,7 @@
   "agent_status",
   "salutation",
   "date_of_joining",
-  "department",
+  "vertical",
   "address_and_other_details_section",
   "address",
   "naming_series"
@@ -77,12 +77,6 @@
    "label": "Date of Joining"
   },
   {
-   "fieldname": "department",
-   "fieldtype": "Select",
-   "label": "Department",
-   "options": "\nShiksha\nVyaapar\nCentral"
-  },
-  {
    "fieldname": "address_and_other_details_section",
    "fieldtype": "Section Break",
    "label": "Address and other details"
@@ -97,11 +91,17 @@
    "fieldtype": "Select",
    "label": "Unique ID",
    "options": "NEWID-"
+  },
+  {
+   "fieldname": "vertical",
+   "fieldtype": "Link",
+   "label": "Vertical",
+   "options": "Verticals"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-28 19:41:12.943344",
+ "modified": "2025-02-04 12:22:01.809777",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Agent",

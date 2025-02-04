@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:vertical_name",
+ "creation": "2024-04-03 14:44:20.194935",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "vertical_name",
+  "vertical_description"
+ ],
+ "fields": [
+  {
+   "fetch_from": "department_name.description",
+   "fieldname": "vertical_description",
+   "fieldtype": "Small Text",
+   "label": "Vertical Description"
+  },
+  {
+   "fieldname": "vertical_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vertical",
+   "options": "Verticals",
+   "reqd": 1,
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-04 12:22:01.993006",
+ "modified_by": "Administrator",
+ "module": "Donor Management",
+ "name": "Vertical Childtable",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

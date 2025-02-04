@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestDepartmentName(FrappeTestCase):
+class TestVerticalChildtable(FrappeTestCase):
 	pass

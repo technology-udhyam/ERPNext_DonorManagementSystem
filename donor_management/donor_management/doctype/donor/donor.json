@@ -146,7 +146,7 @@
    "in_filter": 1,
    "in_standard_filter": 1,
    "label": "Verticals",
-   "options": "Departments"
+   "options": "Vertical Childtable"
   },
   {
    "fieldname": "presentation_details",
@@ -190,7 +190,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2025-01-09 15:34:06.219327",
+ "modified": "2025-02-04 12:21:46.461438",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",
