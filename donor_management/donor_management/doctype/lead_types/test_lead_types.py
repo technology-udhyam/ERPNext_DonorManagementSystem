@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestLeadsType(FrappeTestCase):
+class TestLeadTypes(FrappeTestCase):
 	pass
