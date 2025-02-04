@@ -95,13 +95,15 @@
   {
    "fieldname": "vertical",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Vertical",
    "options": "Verticals"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-04 12:22:01.809777",
+ "modified": "2025-02-04 14:27:43.665526",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Agent",
