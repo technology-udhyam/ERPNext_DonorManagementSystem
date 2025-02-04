@@ -71,7 +71,8 @@
    "fieldtype": "Data",
    "label": "Email ",
    "options": "Email",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "phone",
@@ -114,12 +115,14 @@
    "fieldname": "pan_card",
    "fieldtype": "Data",
    "label": "Pan Number",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "aadhar_number",
    "fieldtype": "Data",
-   "label": "Aadhar Number"
+   "label": "Aadhar Number",
+   "unique": 1
   },
   {
    "default": "0",
@@ -190,7 +193,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2025-02-04 12:21:46.461438",
+ "modified": "2025-02-04 20:29:07.213441",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",
