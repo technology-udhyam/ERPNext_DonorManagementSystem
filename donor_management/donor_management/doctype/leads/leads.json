@@ -140,6 +140,7 @@
   {
    "fieldname": "agent_handling_the_lead",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Agent Handling the Lead",
    "link_filters": "[[{\"fieldname\":\"agent_handling_the_lead\",\"field_option\":\"Agent\"},\"agent_status\",\"=\",\"Active\"]]",
    "options": "Agent"
@@ -169,7 +170,7 @@
  "index_web_pages_for_search": 1,
  "links": [],
  "make_attachments_public": 1,
- "modified": "2025-02-04 18:26:21.430526",
+ "modified": "2025-02-13 10:51:07.318796",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Leads",

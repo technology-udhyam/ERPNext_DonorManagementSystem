@@ -17,15 +17,20 @@
   "address",
   "preferred_currency",
   "departments",
+  "isforeigndonor",
+  "domestic_donor_location",
+  "foreign_donor_country",
   "column_break_uhko",
   "organisation_name",
   "email",
   "alternative_number",
   "donor_type",
   "preferred_communication_method",
+  "donation_frequency",
   "tax_identification_number",
   "pan_card",
   "aadhar_number",
+  "agent_handling_the_donor",
   "presentation_given",
   "donor_cost_center_shortname",
   "presentation_details_section",
@@ -172,6 +177,40 @@
    "fieldname": "donor_cost_center_shortname",
    "fieldtype": "Data",
    "label": "Donor Shortname Used in Cost Center"
+  },
+  {
+   "fieldname": "isforeigndonor",
+   "fieldtype": "Select",
+   "label": "Foreign Donor?",
+   "options": "Yes\nNo"
+  },
+  {
+   "depends_on": "eval:doc.isForeignDonor == No;",
+   "fieldname": "domestic_donor_location",
+   "fieldtype": "Select",
+   "label": "Donor Location",
+   "mandatory_depends_on": "eval:doc.isForeignDonor == No;",
+   "options": "Delhi\nMumbai\nBangalore\nOther"
+  },
+  {
+   "depends_on": "eval:doc.isForeignDonor == Yes;",
+   "fieldname": "foreign_donor_country",
+   "fieldtype": "Data",
+   "label": "Donor Country",
+   "mandatory_depends_on": "eval:doc.isForeignDonor == Yes;"
+  },
+  {
+   "fieldname": "donation_frequency",
+   "fieldtype": "Select",
+   "label": "Preferred Donation Frequency",
+   "options": "Yearly\nQuarterly\nMonthly\nInfrequent\nOnce"
+  },
+  {
+   "fieldname": "agent_handling_the_donor",
+   "fieldtype": "Link",
+   "label": "Agent Handling the Donor",
+   "link_filters": "[[{\"fieldname\":\"agent_handling_the_donor\",\"field_option\":\"Agent\"},\"agent_status\",\"=\",\"Active\"]]",
+   "options": "Agent"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -193,7 +232,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2025-02-07 12:25:40.629061",
+ "modified": "2025-02-13 10:50:43.765541",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",
