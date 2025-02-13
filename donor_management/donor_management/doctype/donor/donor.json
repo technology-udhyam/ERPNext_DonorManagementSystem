@@ -181,6 +181,7 @@
   {
    "fieldname": "isforeigndonor",
    "fieldtype": "Select",
+   "in_standard_filter": 1,
    "label": "Foreign Donor?",
    "options": "Yes\nNo"
   },
@@ -208,6 +209,7 @@
   {
    "fieldname": "agent_handling_the_donor",
    "fieldtype": "Link",
+   "in_standard_filter": 1,
    "label": "Agent Handling the Donor",
    "link_filters": "[[{\"fieldname\":\"agent_handling_the_donor\",\"field_option\":\"Agent\"},\"agent_status\",\"=\",\"Active\"]]",
    "options": "Agent"
@@ -232,7 +234,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2025-02-13 10:50:43.765541",
+ "modified": "2025-02-13 21:22:03.025750",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",
