@@ -33,6 +33,7 @@
   "agent_handling_the_donor",
   "presentation_given",
   "donor_cost_center_shortname",
+  "preferred_engagement_level",
   "presentation_details_section",
   "presentation_details"
  ],
@@ -215,6 +216,12 @@
    "label": "Agent Handling the Donor",
    "link_filters": "[[{\"fieldname\":\"agent_handling_the_donor\",\"field_option\":\"Agent\"},\"agent_status\",\"=\",\"Active\"]]",
    "options": "Agent"
+  },
+  {
+   "fieldname": "preferred_engagement_level",
+   "fieldtype": "Select",
+   "label": "Preferred Engagement Level",
+   "options": "High\nMedium\nLow"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -236,7 +243,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2025-02-17 23:00:33.309994",
+ "modified": "2025-02-17 23:23:57.167585",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",
