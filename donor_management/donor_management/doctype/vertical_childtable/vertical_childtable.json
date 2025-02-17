@@ -22,7 +22,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Vertical",
-   "options": "Verticals",
+   "options": "Vertical",
    "reqd": 1,
    "unique": 1
   }
@@ -30,7 +30,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-02-04 12:22:01.993006",
+ "modified": "2025-02-17 21:15:13.128160",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Vertical Childtable",

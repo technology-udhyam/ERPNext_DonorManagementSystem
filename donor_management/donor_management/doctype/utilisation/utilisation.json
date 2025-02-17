@@ -151,7 +151,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Vertical",
-   "options": "Verticals"
+   "options": "Vertical"
   },
   {
    "fieldname": "project",
@@ -164,7 +164,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-04 12:22:01.306229",
+ "modified": "2025-02-17 21:15:12.437443",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Utilisation",
