@@ -186,19 +186,19 @@
    "options": "Yes\nNo"
   },
   {
-   "depends_on": "eval:doc.isForeignDonor == No;",
+   "depends_on": "eval:doc.isforeigndonor == \"No\";",
    "fieldname": "domestic_donor_location",
    "fieldtype": "Select",
    "label": "Donor Location",
-   "mandatory_depends_on": "eval:doc.isForeignDonor == No;",
+   "mandatory_depends_on": ":doc.isforeigndonor == \"No\";",
    "options": "Delhi\nMumbai\nBangalore\nOther"
   },
   {
-   "depends_on": "eval:doc.isForeignDonor == Yes;",
+   "depends_on": "eval:doc.isforeigndonor == \"Yes\";",
    "fieldname": "foreign_donor_country",
    "fieldtype": "Data",
    "label": "Donor Country",
-   "mandatory_depends_on": "eval:doc.isForeignDonor == Yes;"
+   "mandatory_depends_on": ":doc.isforeigndonor == \"Yes\";"
   },
   {
    "fieldname": "donation_frequency",
@@ -234,7 +234,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2025-02-13 21:22:03.025750",
+ "modified": "2025-02-17 17:10:37.510969",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",
