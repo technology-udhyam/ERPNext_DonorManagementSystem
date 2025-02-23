@@ -26,6 +26,7 @@
   "alternative_number",
   "donor_type",
   "preferred_communication_method",
+  "preferred_engagement_level",
   "donation_frequency",
   "tax_identification_number",
   "pan_card",
@@ -33,7 +34,8 @@
   "agent_handling_the_donor",
   "presentation_given",
   "donor_cost_center_shortname",
-  "preferred_engagement_level",
+  "section_break_mbag",
+  "donor_points_of_engagament",
   "presentation_details_section",
   "presentation_details"
  ],
@@ -222,6 +224,17 @@
    "fieldtype": "Select",
    "label": "Preferred Engagement Level",
    "options": "High\nMedium\nLow"
+  },
+  {
+   "fieldname": "section_break_mbag",
+   "fieldtype": "Section Break",
+   "label": "Points of Engagement"
+  },
+  {
+   "description": "Capture the various points of engagement that we would want to have with the Donor and the frequency of each engagement.",
+   "fieldname": "donor_points_of_engagament",
+   "fieldtype": "Table",
+   "options": "Points of Engagement"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -243,7 +256,7 @@
    "link_fieldname": "donor_name"
   }
  ],
- "modified": "2025-02-17 23:23:57.167585",
+ "modified": "2025-02-23 12:29:22.846039",
  "modified_by": "Administrator",
  "module": "Donor Management",
  "name": "Donor",

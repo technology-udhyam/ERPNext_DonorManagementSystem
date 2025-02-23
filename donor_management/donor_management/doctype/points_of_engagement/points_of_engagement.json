@@ -1,0 +1,39 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-14 10:18:56.600184",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "point_of_engagement",
+  "engagement_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "point_of_engagement",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Point of Engagement",
+   "options": "Thank you post on social media (Video)\nPress Release of partnership\nMonthly FR newsletter post association\nQuarterly donor report\nBlog post, also shared on social media\nSpotlight interview with donor/leadership with Mekin to be shared on social media\nUpdate/stories video, also shared on social media\nField visit for leadership, prime donors\nEmployee engagement event including event collaterals\nInvitation to Udhyam's annual flagship event\nEnd of the year project video\nCoffee Connect\nHampers from our businesses Invite to Galas\nQuarterly Donor group calls with CEO"
+  },
+  {
+   "fieldname": "engagement_details",
+   "fieldtype": "Long Text",
+   "in_list_view": 1,
+   "label": "Engagement Details"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-18 15:01:34.742637",
+ "modified_by": "Administrator",
+ "module": "Donor Management",
+ "name": "Points of Engagement",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
