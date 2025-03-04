@@ -32,7 +32,7 @@ def add_donation_to_overall_donation(doc):
         donation_details = frappe.get_doc(doc)
         donor_id = donation_details.get("donor_id")
         donor_email = donation_details.get("email")
-        overall_donation_document = frappe.get_all('Overall Donation', filters={'donor_id': donor_id, 'donor_email': donor_email }, limit=1)
+        overall_donation_document = frappe.get_all('Overall Donation', filters={'donor_id': donor_id}, limit=1)
         if not overall_donation_document:
             add_new_overall_donation(donation_details)
         else:
@@ -40,7 +40,7 @@ def add_donation_to_overall_donation(doc):
     except frappe.DoesNotExistError:
         add_new_overall_donation(donation_details)
     except Exception as e:
-        frappe.log_error(f"Error in add_donation_to_test: {e}", "Donation Processing")
+        frappe.log_error(f"Error in add_donation_to_overall_donation: {e}", "Donation Processing")
 
 def add_new_overall_donation(doc):
     try:
