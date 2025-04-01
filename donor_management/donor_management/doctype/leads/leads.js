@@ -1,8 +1,10 @@
 function convertToDonor(frm) {
-    if (!frm.doc.pan_card) {
-        frappe.msgprint(__('PAN Card is mandatory for converting to a Donor'));
+    if (!frm.doc.pan_card || !frm.doc.email) {
+        frappe.msgprint(('PAN Card and Email address are mandatory for converting to a Donor'));
         return;
     }
+
+    frm.save();
 
     var leadName = frm.doc.lead_name;
     var email = frm.doc.email;
@@ -24,12 +26,14 @@ function convertToDonor(frm) {
                     name: frm.doc.name
                 },
                 callback: function(r) {
-                    if (r.message) { 
-                        frm.set_value("lead_status", "Converted to donor");
-                        frm.save();
-                        frappe.msgprint(__('Lead converted to donor successfully.'));
+                    if (r.message.status=='success') { 
+                        //frm.set_value("lead_status", "Converted to Donor");
+                        //frm.save();
+                        frappe.msgprint(('Lead converted to donor successfully.'));
+                        frappe.msgprint((r.message.text));
                     } else {
-                        frappe.msgprint(__('Conversion to donor failed.'));
+                        frappe.msgprint(('Conversion to donor failed.'));
+                        frappe.msgprint((r.message.text));
                     }
                 }
             });
@@ -43,9 +47,11 @@ function convertToDonor(frm) {
 frappe.ui.form.on('Leads', {
     refresh: function(frm) {
         if (!frm.doc.__islocal && !frm.doc.donor) {
-            frm.add_custom_button(__('Convert to Donor'), function() {
-                convertToDonor(frm);
-            }).addClass('btn-primary');
+	    if (frm.doc.lead_status!="Converted to Donor") {
+            	frm.add_custom_button(__('Convert to Donor'), function() {
+            	    convertToDonor(frm);
+            	}).addClass('btn-primary');
+	    }
         }
     }
 });

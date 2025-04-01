@@ -1,6 +1,9 @@
 import frappe
 from frappe import _
 
+frappe.utils.logger.set_log_level("DEBUG")
+logger = frappe.logger("leads", allow_site=True, file_count=50)
+
 @frappe.whitelist()
 def create_or_update_donor(lead_name, email, name, pan_card):
     if not pan_card:
@@ -14,18 +17,21 @@ def create_or_update_donor(lead_name, email, name, pan_card):
         else:
             return update_existing_donor(existing_donor[0], lead_details, email)
     except Exception as e:
-        frappe.logger().error(f'Error in create_or_update_donor: {str(e)}', exc_info=True)
-        return {'status': 'error', 'message': _('Error: {0}').format(str(e))}
+        logger.error(f'Error in create_or_update_donor: {str(e)}', exc_info=True)
+        return {'status': 'error', 'message': ('Error: {0}').format(str(e))}
 
 def update_existing_donor(existing_donor, lead_details, email):
     try:
         donor = frappe.get_doc("Donor", existing_donor.name)
         update_donor_details(donor, lead_details, email)
         donor.save(ignore_permissions = True)
-        return True
+        lead_details.lead_status="Converted to Donor"
+        lead_details.save(ignore_permissions = True)
+        logger.info(f'Existing Donor update successfully with Lead information for {lead_details.lead_name}')
+        return {'status': 'success', 'text': 'Existing donor updated successfully'}
     except Exception as e:
-        frappe.logger().error(f'Error in updating Donor: {str(e)}', exc_info=True)
-        return False
+        logger.error(f'Error in updating Donor: {str(e)}', exc_info=True)
+        return {'status': 'error', 'text': ('Error: {0}').format(str(e))}
 
 def create_new_donor(lead_details, email):
     try:
@@ -33,10 +39,13 @@ def create_new_donor(lead_details, email):
         update_donor_details(donor, lead_details, email)
         donor.insert(ignore_permissions=True)
         donor.save()
-        return True
+        lead_details.lead_status="Converted to Donor"
+        lead_details.save(ignore_permissions = True)
+        logger.info(f'New Donor created from Lead {lead_details.lead_name}')
+        return {'status': 'success', 'text': 'New donor created successfully'}
     except Exception as e:
-        frappe.logger().error(f'Error in creating Donor: {str(e)}', exc_info=True)
-        return False
+        logger.error(f'Error in creating Donor: {str(e)}', exc_info=True)
+        return {'status': 'error', 'text': ('Error: {0}').format(str(e))}
 
 
 def update_donor_details(donor, lead_details, email):
@@ -53,7 +62,7 @@ def update_donor_details(donor, lead_details, email):
     existing_departments = {d.department_name for d in donor.departments}
     
 
-    for department in lead_details.department:
+    for department in lead_details.verticals:
         if department.department_name not in existing_departments:
             donor.append("departments", {"department_name": department.department_name})
     
