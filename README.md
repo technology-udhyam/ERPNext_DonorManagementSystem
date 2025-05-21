@@ -100,3 +100,7 @@ Installing Frappe Framework: Frappe Version 16
     - Secret Key: 71D59859F81E74569FE95B5C64C4B
 - Postman Collection Link:
     - https://api.postman.com/collections/27116056-5269c52c-f2ea-4b02-b5bf-d8cad56fc731?access_key=PMAT-01HXE0CRSC7733K5911ZSF2T7B
+ 
+# Donation Receipt
+
+Donation receipt us generated using a Print Format. This can be edited by using the Print Format UI. The easy way to edit could be to copy paste the entire HTML to a local html file, test it and copy back the finished html to the Print Format.
