@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2025-06-23 20:13:57.216992",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "proposal_details_section",
+  "naming_series",
+  "proposal_name",
+  "proposal_project",
+  "proposal_focus_area",
+  "proposal_year",
+  "proposal_grant_duration",
+  "column_break_pmdx",
+  "proposer",
+  "proposal_submitted_to",
+  "proposal_submit_date",
+  "proposal_status",
+  "proposal_grant_amount",
+  "section_break_gaec",
+  "proposal_attachement"
+ ],
+ "fields": [
+  {
+   "fieldname": "proposal_year",
+   "fieldtype": "Select",
+   "label": "Proposal Year",
+   "options": "2025-26\n2026-27\n2027-28\n2028-29\n2029-30"
+  },
+  {
+   "fieldname": "column_break_pmdx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "proposal_status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Submitted\nApproved\nRejected\nIn Writing\nPre-Submission Conversation\nOn Hold\nTo be Revised",
+   "reqd": 1
+  },
+  {
+   "fieldname": "proposal_submit_date",
+   "fieldtype": "Date",
+   "label": "Submitted Date"
+  },
+  {
+   "fieldname": "proposal_project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Project",
+   "options": "Project Details",
+   "reqd": 1
+  },
+  {
+   "fieldname": "proposal_grant_duration",
+   "fieldtype": "Data",
+   "label": "Grant Duration (Ex: May 2024 - Jun 2028)"
+  },
+  {
+   "fieldname": "proposer",
+   "fieldtype": "Link",
+   "label": "Proposer",
+   "options": "Agent"
+  },
+  {
+   "fieldname": "proposal_submitted_to",
+   "fieldtype": "Link",
+   "label": "Submitted To",
+   "options": "Leads",
+   "reqd": 1
+  },
+  {
+   "fieldname": "proposal_focus_area",
+   "fieldtype": "Select",
+   "label": "Focus Area",
+   "options": "Capacity Building (Tech & Product)\nCapacity building (Curriculum)\nCapacity building (General)\nNew Initiatives\nOrganizational Level\nExpansion in a State\nLSI\nWomen Livelihood\nIstri project\nFood Vendor Onboarding\nLivelihood"
+  },
+  {
+   "fieldname": "proposal_grant_amount",
+   "fieldtype": "Currency",
+   "label": "Grant Amount"
+  },
+  {
+   "fieldname": "section_break_gaec",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "proposal_attachement",
+   "fieldtype": "Table",
+   "label": "Attachments",
+   "options": "Attachments"
+  },
+  {
+   "fieldname": "proposal_details_section",
+   "fieldtype": "Section Break",
+   "label": "Proposal Details"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Proposal ID",
+   "options": "PROPOSAL-.YYYY.-"
+  },
+  {
+   "fieldname": "proposal_name",
+   "fieldtype": "Data",
+   "label": "Proposal Name",
+   "reqd": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-23 20:47:53.165921",
+ "modified_by": "Administrator",
+ "module": "Donor Management",
+ "name": "Proposal",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "proposal_name",
+ "track_changes": 1
+}
